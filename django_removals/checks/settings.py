@@ -90,14 +90,16 @@ def check_removed_settings(**kwargs):
     for setting_name in dir(settings):
         for django_version, removed_settings in REMOVED_SETTINGS.items():
             if setting_name.isupper() and setting_name in removed_settings:
-                warning_id = f"W0{django_version.replace(".", "")}/{setting_name.lower()}"
+                django_url_as_numbers = django_version.replace(".", "")
+                warning_id = f"W0{django_url_as_numbers}/{setting_name.lower()}"
+                django_version_for_url = django_version.replace(".", "-")
                 warnings.append(
                     Warning(
                         f"The {setting_name!r} setting was removed in Django {django_version} and its use is not "
                         f"recommended.",
                         hint=f"Please refer to the documentation: "
                         f"https://docs.djangoproject.com/en/stable/releases/{django_version}/"
-                        f"#features-removed-in-{django_version.replace('.', '-')}.",
+                        f"#features-removed-in-{django_version_for_url}.",
                         obj=setting_name,
                         id=f"removals.{warning_id}",
                     )
