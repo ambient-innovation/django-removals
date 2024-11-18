@@ -12,10 +12,8 @@ class RemovedSettingsCheckTests(SimpleTestCase):
 
         self.assertIn(
             checks.Warning(
-                "The 'TRANSACTIONS_MANAGED' setting was removed and its use "
-                "is not recommended.",
-                hint="Please refer to the documentation and remove/replace "
-                "this setting.",
+                "The 'TRANSACTIONS_MANAGED' setting was removed and its use " "is not recommended.",
+                hint="Please refer to the documentation and remove/replace " "this setting.",
                 obj="TRANSACTIONS_MANAGED",
                 id="settings.W001",
             ),

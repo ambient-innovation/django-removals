@@ -1,8 +1,7 @@
 from django.conf import settings
+from django.core.checks import Warning
 
-from django.core.checks import Tags, Warning, register
-
-# todo: create tags dynamically with removals.5.1.my_var?
+# TODO: create tags dynamically with removals.5.1.my_var?
 REMOVED_SETTINGS = {
     # Django 1.0
     # https://docs.djangoproject.com/en/stable/releases/1.0/
@@ -43,7 +42,6 @@ REMOVED_SETTINGS = {
     "TEST_PASSWD",
     "TEST_DATABASE_ENGINE",
     "TEST_DATABASE_HOST",
-    "TEST_DATABASE_NAME",
     "TEST_DATABASE_OPTIONS",
     "TEST_DATABASE_PASSWORD",
     "TEST_DATABASE_PORT",
@@ -81,8 +79,6 @@ REMOVED_SETTINGS = {
     # Django 4.0
     # https://docs.djangoproject.com/en/stable/releases/4.0/#features-removed-in-4-0
     "DEFAULT_HASHING_ALGORITHM",
-    "PASSWORD_RESET_TIMEOUT_DAYS",
-    "SECURE_BROWSER_XSS_FILTER",
     # Django 4.1
     # https://docs.djangoproject.com/en/stable/releases/4.1/#features-removed-in-4-1
     # Django 5.0
@@ -90,10 +86,8 @@ REMOVED_SETTINGS = {
     "USE_L10N",
     "USE_DEPRECATED_PYTZ",
     "CSRF_COOKIE_MASKED",
-    "DATABASE_OPTIONS",
     # Django 5.1
     # https://docs.djangoproject.com/en/stable/releases/5.1/#features-removed-in-5-1
-    "DEFAULT_FILE_STORAGE",
     "STATICFILES_STORAGE",
     # Django 6.0
     # RemovedInDjango60Warning: when the deprecation ends, replace with:
@@ -101,7 +95,6 @@ REMOVED_SETTINGS = {
 }
 
 
-@register(Tags.settings) # todo: fixme
 def check_removed_settings(**kwargs):
     """
     This check warns users who still use deprecated settings variables.
@@ -110,12 +103,10 @@ def check_removed_settings(**kwargs):
     warnings = []
     for setting_name in dir(settings):
         if setting_name.isupper() and setting_name in REMOVED_SETTINGS:
-            warnings.append(
+            warnings.append(  # noqa: PERF401
                 Warning(
-                    f"The {setting_name!r} setting was removed and its use is "
-                    f"not recommended.",
-                    hint="Please refer to the documentation and remove/replace "
-                         "this setting.",
+                    f"The {setting_name!r} setting was removed and its use is " f"not recommended.",
+                    hint="Please refer to the documentation and remove/replace " "this setting.",
                     obj=setting_name,
                     id="settings.W001",
                 )
