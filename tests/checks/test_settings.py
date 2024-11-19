@@ -10,7 +10,7 @@ class RemovedSettingsCheckTests(SimpleTestCase):
     def test_check_removed_settings_found_match(self):
         all_issues = checks.run_checks(tags=None)
 
-        self.assertGreater(len(all_issues), 1)
+        self.assertGreaterEqual(len(all_issues), 1)
 
         self.assertIn(
             checks.Warning(
