@@ -1,5 +1,8 @@
 # Changelog
 
+**1.0.3** (2024-11-19)
+   * Added screenshot to documentation for clarification
+
 **1.0.2** (2024-11-19)
    * Moved `DEFAULT_FILE_STORAGE` removal from Django 3.1 to Django 5.1
 
