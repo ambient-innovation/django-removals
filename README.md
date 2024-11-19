@@ -124,7 +124,7 @@ Example: run all hooks of pre-push stage
   flit publish
   ```
 
-  To publish to TestPyPI use the following ensure that you have set up your .pypirc as
+  To publish to TestPyPI use the following to ensure that you have set up your .pypirc as
   shown [here](https://flit.readthedocs.io/en/latest/upload.html#using-pypirc) and use the following command:
 
   ```
