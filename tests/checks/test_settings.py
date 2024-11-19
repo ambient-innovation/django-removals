@@ -34,18 +34,9 @@ class RemovedSettingsCheckTests(SimpleTestCase):
 
         self.assertEqual(len(all_issues), 0)
 
-    @override_settings(STATICFILES_STORAGE=("path.to.my.storage",))
+    @override_settings(USE_L10N=True)
     @mock.patch.object(django, "VERSION", new=(4, 2, 0))
     def test_dont_check_newer_than_installed_django_versions(self, *args):
         all_issues = checks.run_checks(tags=None)
 
-        self.assertNotIn(
-            checks.Warning(
-                "The 'TRANSACTIONS_MANAGED' setting was removed in Django 1.4 and its use is not recommended.",
-                hint="Please refer to the documentation: https://docs.djangoproject.com/en/stable/releases/"
-                "1.4/#features-removed-in-1-4.",
-                obj="TRANSACTIONS_MANAGED",
-                id="removals.W014/transactions_managed",
-            ),
-            all_issues,
-        )
+        self.assertEqual(len(all_issues), 0)
