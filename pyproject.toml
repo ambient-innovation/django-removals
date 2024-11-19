@@ -228,6 +228,6 @@ exclude_also = [
 
 [tool.coverage.path]
 source = [
-    "django-removals",
+    "django_removals",
     ".tox/**/site-packages",
 ]
