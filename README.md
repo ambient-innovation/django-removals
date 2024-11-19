@@ -117,7 +117,7 @@ Example: run all hooks of pre-push stage
 
 - Increment version in main `__init__.py`
 
-- Create pull request / merge to master
+- Create pull request / merge to main
 
 - This project uses the flit package to publish to PyPI. Thus, publishing should be as easy as running:
   ```

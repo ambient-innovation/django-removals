@@ -25,6 +25,7 @@ METADATA = PackageMetadata(
     development_status="5 - Production/Stable",
     has_migrations=False,
     readme_content=ReadmeContent(uses_internationalisation=False),
+    main_branch="main",
     dependencies=[
         f"Django>={SUPPORTED_DJANGO_VERSIONS[0]}",
     ],
