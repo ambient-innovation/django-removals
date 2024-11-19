@@ -202,7 +202,7 @@ python_files = [
 branch = true
 parallel = true
 source = [
-    "django-removals",
+    "django_removals",
     "tests",
 ]
 omit = [
