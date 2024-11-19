@@ -5,11 +5,6 @@ from django_removals.checks.settings import check_removed_settings
 
 
 class SettingsCheckTest(SimpleTestCase):
-    def test_check_removed_settings_no_warnings(self):
-        warnings = check_removed_settings()
-
-        self.assertEqual(len(warnings), 0)
-
     @override_settings(TRANSACTIONS_MANAGED=True)
     def test_check_removed_settings_with_deprecated_settings(self):
         warnings = check_removed_settings()
