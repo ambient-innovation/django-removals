@@ -65,7 +65,6 @@ REMOVED_SETTINGS = {
         "PASSWORD_RESET_TIMEOUT_DAYS",
     },
     3.1: {
-        "DEFAULT_FILE_STORAGE",
         "FILE_CHARSET",
     },
     4.0: {
@@ -77,6 +76,7 @@ REMOVED_SETTINGS = {
         "CSRF_COOKIE_MASKED",
     },
     5.1: {
+        "DEFAULT_FILE_STORAGE",
         "STATICFILES_STORAGE",
     },
 }
