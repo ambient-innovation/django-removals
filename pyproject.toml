@@ -1,0 +1,233 @@
+[build-system]
+requires = ["flit_core>=3.4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "django-removals"
+authors = [
+    {'name' = 'Ambient Digital', 'email' = 'hello@ambient.digital'},
+]
+readme = "README.md"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Utilities",
+]
+dynamic = ["version", "description"]
+license = {"file" = "LICENSE.md"}
+dependencies = [
+    'Django>=4.2',
+]
+
+
+[project.optional-dependencies]
+dev = [
+   'typer~=0.12',
+   'freezegun~=1.5',
+   'pytest-django~=4.9',
+   'pytest-mock~=3.14',
+   'coverage~=7.6',
+   'pre-commit~=4.0',
+   'ruff~=0.6',
+   'sphinx~=7.1',
+   'sphinx-rtd-theme~=2.0',
+   'm2r2==0.3.3.post2',
+   'mistune<2.0.0',
+   'flit~=3.9',
+   'keyring~=25.4',
+   'ambient-package-update',
+]
+
+[tool.flit.module]
+name = "django_removals"
+
+[project.urls]
+'Homepage' = 'https://github.com/ambient-innovation/django-removals/'
+'Documentation' = 'https://django-removals.readthedocs.io/en/latest/index.html'
+'Maintained by' = 'https://ambient.digital/'
+'Bugtracker' = 'https://github.com/ambient-innovation/django-removals/issues'
+'Changelog' = 'https://django-removals.readthedocs.io/en/latest/features/changelog.html'
+
+[tool.ruff]
+lint.select = [
+    "E",       # pycodestyle errors
+    "W",       # pycodestyle warnings
+    "F",       # Pyflakes
+    "N",       # pep8-naming
+    "I",       # isort
+    "B",       # flake8-bugbear
+    "A",       # flake8-builtins
+    "DTZ",     # flake8-datetimez
+    "DJ",      # flake8-django
+    "TD",      # flake8-to-do
+    "RUF",     # Ruff-specific rules
+    "YTT",     # Avoid non-future-prove usages of "sys"
+    "C4",      # Checks for unnecessary conversions
+    "PIE",     # Bunch of useful rules
+    "INT",     # Validates your gettext translation strings
+    "PERF",    # PerfLint
+    "PGH",     # No all-purpose "# noqa" and eval validation
+    "PL",      # PyLint
+    "LOG",     # flake8-logging
+    "TID",     # flake8-tidy-imports
+    "PLR2004", # Magic numbers
+    "BLE",     # Checks for except clauses that catch all exceptions
+    "ANN401",  # Checks that function arguments are annotated with a more specific type than Any
+    "TRY",     # Clean try/except
+    "ERA",     # Commented out code
+]
+lint.ignore = [
+]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+lint.fixable = [
+    "E",       # pycodestyle errors
+    "W",       # pycodestyle warnings
+    "F",       # Pyflakes
+    "N",       # pep8-naming
+    "I",       # isort
+    "B",       # flake8-bugbear
+    "A",       # flake8-builtins
+    "DTZ",     # flake8-datetimez
+    "DJ",      # flake8-django
+    "TD",      # flake8-to-do
+    "RUF",     # Ruff-specific rules
+    "YTT",     # Avoid non-future-prove usages of "sys"
+    "C4",      # Checks for unnecessary conversions
+    "PIE",     # Bunch of useful rules
+    "INT",     # Validates your gettext translation strings
+    "PERF",    # PerfLint
+    "PGH",     # No all-purpose "# noqa" and eval validation
+    "PL",      # PyLint
+    "LOG",     # flake8-logging
+    "TID",     # flake8-tidy-imports
+    "PLR2004", # Magic numbers
+    "BLE",     # Checks for except clauses that catch all exceptions
+    "ANN401",  # Checks that function arguments are annotated with a more specific type than Any
+    "TRY",     # Clean try/except
+    "ERA",     # Commented out code
+]
+lint.unfixable = []
+
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+    "*/migrations/*"
+]
+
+# Same as Black.
+line-length = 120
+
+# Allow unused variables when underscore-prefixed.
+lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Assume Python 3.12
+target-version = "py312"
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+[tool.tox]
+legacy_tox_ini = """
+[testenv]
+# Django deprecation overview: https://www.djangoproject.com/download/
+deps =
+    django42: Django==4.2.*
+    django50: Django==5.0.*
+    django51: Django==5.1.*
+extras = dev,
+commands =
+    coverage run -m pytest --ds settings tests
+
+[gh-actions]
+python =
+    3.9: py39
+    3.10: py310
+    3.11: py311
+    3.12: py312
+    3.13: py313
+"""
+
+[tool.pytest.ini_options]
+python_files = [
+    "tests.py",
+    "test_*.py",
+    "*_tests.py",
+]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source = [
+    "django_removals",
+    "tests",
+]
+omit = [
+  "setup.py",
+  "*_test.py",
+  "tests.py",
+  "testapp/*",
+  "tests/*",
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+# Regexes for lines to exclude from consideration
+exclude_also = [
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+    # Don't check type hinting imports
+    "if typing.TYPE_CHECKING:",
+    "if TYPE_CHECKING:",
+]
+
+[tool.coverage.path]
+source = [
+    "django_removals",
+    ".tox/**/site-packages",
+]
