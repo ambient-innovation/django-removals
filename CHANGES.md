@@ -1,5 +1,8 @@
 # Changelog
 
+**1.0.4** (2024-11-20)
+   * Improved docs
+
 **1.0.3** (2024-11-19)
    * Added screenshot to documentation for clarification
 
