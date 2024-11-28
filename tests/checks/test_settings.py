@@ -53,3 +53,18 @@ class RemovedSettingsCheckTests(SimpleTestCase):
             ),
             all_issues,
         )
+
+    @override_settings(LOGOUT_URL="/logout")
+    def test_non_float_django_versions(self, *args):
+        all_issues = checks.run_checks(tags=None)
+
+        self.assertIn(
+            checks.Warning(
+                "The 'LOGOUT_URL' setting was removed in Django 1.10 and its use is not recommended.",
+                hint="Please refer to the documentation: https://docs.djangoproject.com/en/stable/releases/"
+                "1.10/#features-removed-in-1-10.",
+                obj="LOGOUT_URL",
+                id="removals.W0110/logout_url",
+            ),
+            all_issues,
+        )

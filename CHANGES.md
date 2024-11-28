@@ -1,5 +1,8 @@
 # Changelog
 
+**1.0.5** (2024-11-28)
+   * Fixed display bug with two-digit Django versions
+
 **1.0.4** (2024-11-20)
    * Improved docs
 
