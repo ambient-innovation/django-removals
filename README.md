@@ -110,7 +110,7 @@ You can check whether hooks work as intended using the [run](https://pre-commit.
 
 Example: run single hook
 
-    pre-commit run ruff --all-files --hook-stage push
+    pre-commit run ruff --all-files
 
 Example: run all hooks of pre-push stage
 

@@ -36,7 +36,7 @@ from django_removals import __version__  # noqa: E402
 # -- Project information -----------------------------------------------------
 
 project = "django-removals"
-copyright = "2024, Ambient Innovation: GmbH"  # noqa: A001
+copyright = "2025, Ambient Innovation: GmbH"  # noqa: A001
 author = "Ambient Digital <hello@ambient.digital>"
 version = __version__
 release = __version__
