@@ -142,3 +142,17 @@ cython_debug/
 
 # Requirements.txt is managed by pip-tools
 requirements.txt
+
+# sphinx build folder
+_build
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+
+# Test databases
+*.sqlite

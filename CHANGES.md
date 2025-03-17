@@ -1,5 +1,8 @@
 # Changelog
 
+**1.0.6** (2025-02-15)
+  * Maintenance updates via ambient-package-update
+
 **1.0.5** (2024-11-28)
    * Fixed display bug with two-digit Django versions
 

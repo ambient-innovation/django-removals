@@ -1,6 +1,6 @@
 import django
 from django.conf import settings
-from django.core.checks import Warning
+from django.core.checks import Warning  # noqa: A004
 
 REMOVED_SETTINGS = {
     "1.2": {
