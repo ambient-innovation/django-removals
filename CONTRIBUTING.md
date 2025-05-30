@@ -51,11 +51,9 @@ Example: run single hook
 
 Example: run all hooks of pre-push stage
 
-    pre-commit run --all-files --hook-stage push
+    pre-commit run --all-files
 
 ## Update documentation
 
 - To build the documentation, run: `sphinx-build docs/ docs/_build/html/`.
 - Open `docs/_build/html/index.html` to see the documentation.
-
-
