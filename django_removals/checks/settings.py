@@ -58,7 +58,6 @@ REMOVED_SETTINGS = {
     },
     "2.1": {
         "USE_ETAGS",
-        "SECURE_BROWSER_XSS_FILTER",
     },
     "3.0": {
         "DEFAULT_CONTENT_TYPE",
@@ -69,6 +68,7 @@ REMOVED_SETTINGS = {
     },
     "4.0": {
         "DEFAULT_HASHING_ALGORITHM",
+        "SECURE_BROWSER_XSS_FILTER",
     },
     "5.0": {
         "USE_L10N",

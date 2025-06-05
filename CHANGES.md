@@ -1,5 +1,8 @@
 # Changelog
 
+**1.0.9** (2025-06-05)
+  * Fixed issue of wrong deprecation version for `SECURE_BROWSER_XSS_FILTER`
+
 **1.0.8** (2025-05-29)
   * Maintenance updates via ambient-package-update
 
