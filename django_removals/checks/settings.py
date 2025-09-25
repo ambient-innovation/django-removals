@@ -82,6 +82,9 @@ REMOVED_SETTINGS = {
     "6.0": {
         "FORMS_URLFIELD_ASSUME_HTTPS",
     },
+    "7.0": {
+        "URLIZE_ASSUME_HTTPS",
+    },
 }
 
 
