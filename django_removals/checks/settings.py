@@ -79,6 +79,12 @@ REMOVED_SETTINGS = {
         "DEFAULT_FILE_STORAGE",
         "STATICFILES_STORAGE",
     },
+    "6.0": {
+        "FORMS_URLFIELD_ASSUME_HTTPS",
+    },
+    "7.0": {
+        "URLIZE_ASSUME_HTTPS",
+    },
 }
 
 
