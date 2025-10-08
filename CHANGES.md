@@ -1,5 +1,8 @@
 # Changelog
 
+**1.1.0** (2025-10-08)
+  * Added known deprecations for `FORMS_URLFIELD_ASSUME_HTTPS` and `URLIZE_ASSUME_HTTPS`
+
 **1.0.9** (2025-06-05)
   * Fixed issue of wrong deprecation version for `SECURE_BROWSER_XSS_FILTER`
 
