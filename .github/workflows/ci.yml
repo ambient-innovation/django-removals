@@ -84,7 +84,8 @@ jobs:
 
       - name: Combine coverage and fail if it's <100.0%
         run: |
-          python -m coverage combine coverage-reports/**/.coverage
+          find coverage-reports -name '.coverage' -exec mv {} .coverage.{} \;
+          python -m coverage combine
           python -m coverage xml
           python -m coverage html --skip-covered --skip-empty
           python -m coverage report --fail-under=100.0
