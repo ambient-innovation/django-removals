@@ -57,7 +57,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: coverage-data-${{ matrix.python-version }}-${{ matrix.django-version }}
-          path: '${{ github.workspace }}/coverage.xml'
+          path: '${{ github.workspace }}/.coverage'
           include-hidden-files: true
           if-no-files-found: error
 
@@ -84,7 +84,8 @@ jobs:
 
       - name: Combine coverage and fail if it's <100.0%
         run: |
-          python -m coverage combine coverage-reports/**/*.xml
+          python -m coverage combine coverage-reports/**/.coverage
+          python -m coverage xml
           python -m coverage html --skip-covered --skip-empty
           python -m coverage report --fail-under=100.0
           echo "## Coverage summary" >> $GITHUB_STEP_SUMMARY
