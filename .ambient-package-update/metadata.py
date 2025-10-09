@@ -20,6 +20,7 @@ METADATA = PackageMetadata(
     ],
     maintainer=PackageMaintainer(name="Ambient Digital", url="https://ambient.digital/", email="hello@ambient.digital"),
     licenser="Ambient Innovation: GmbH",
+    claim="Tool for finding removed features in your Django project",
     license=LICENSE_MIT,
     license_year=2024,
     development_status="5 - Production/Stable",
