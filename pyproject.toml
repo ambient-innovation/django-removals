@@ -194,14 +194,14 @@ line-ending = "auto"
 
 [tool.tox]
 requires = ["tox>=4", "tox-uv>=1.0.0"]
-env_list = ["django42", "django51", "django52"]
+env_list = ["django42", "django51", "django52", ]
 
 [tool.tox.env_run_base]
 # Django deprecation overview: https://www.djangoproject.com/download/
 package = "wheel"
 wheel_build_env = ".pkg"
 runner = "uv-venv-lock-runner"
-groups = ["dev"]
+groups = ["dev",]
 commands = [
     ["pytest", "--cov=django_removals", "--cov-report=term", "--cov-report=xml", "--ds", "settings", "tests"]
 ]
