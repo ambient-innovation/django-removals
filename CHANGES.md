@@ -1,5 +1,8 @@
 # Changelog
 
+**1.1.1** (2025-10-09)
+  * Maintenance updates via ambient-package-update
+
 **1.1.0** (2025-10-08)
   * Added known deprecations for `FORMS_URLFIELD_ASSUME_HTTPS` and `URLIZE_ASSUME_HTTPS`
 
