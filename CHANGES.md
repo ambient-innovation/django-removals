@@ -1,5 +1,8 @@
 # Changelog
 
+**1.1.5** (2025-12-11)
+  * Maintenance updates via ambient-package-update
+
 **1.1.4** (2025-10-15)
   * Maintenance updates via ambient-package-update
 
