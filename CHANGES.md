@@ -1,5 +1,8 @@
 # Changelog
 
+**1.1.6** (2025-12-16)
+  * Added official deprecation docs to readme
+
 **1.1.5** (2025-12-11)
   * Maintenance updates via ambient-package-update
 

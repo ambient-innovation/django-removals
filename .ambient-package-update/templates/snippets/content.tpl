@@ -16,3 +16,8 @@ or when you call the checks manually
 `python manage.py check --deploy`
 
 It focuses on Django settings but might also add more checks in the future.
+
+## Sources
+
+You can read up on Django deprecations in
+[the official docs](https://docs.djangoproject.com/en/dev/internals/deprecation/).
