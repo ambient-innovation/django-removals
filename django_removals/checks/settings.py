@@ -84,6 +84,20 @@ REMOVED_SETTINGS = {
     },
     "7.0": {
         "URLIZE_ASSUME_HTTPS",
+        # Email settings deprecated in 6.1 in favour of the "MAILERS" setting
+        "EMAIL_BACKEND",
+        "EMAIL_FILE_PATH",
+        "EMAIL_HOST",
+        "EMAIL_HOST_PASSWORD",
+        "EMAIL_HOST_USER",
+        "EMAIL_PORT",
+        "EMAIL_USE_TLS",
+        "EMAIL_USE_SSL",
+        "EMAIL_SSL_CERTFILE",
+        "EMAIL_SSL_KEYFILE",
+        "EMAIL_TIMEOUT",
+        # Transitional setting deprecated in 6.1
+        "USE_BLANK_CHOICE_DASH",
     },
 }
 
