@@ -1,5 +1,8 @@
 # Changelog
 
+**1.2.0** (2026-05-27)
+  * Added known settings deprecations from Django 6.1: the `EMAIL_*` settings (replaced by `MAILERS`) and `USE_BLANK_CHOICE_DASH`
+
 **1.1.8** (2026-03-30)
   * Maintenance updates via ambient-package-update
 

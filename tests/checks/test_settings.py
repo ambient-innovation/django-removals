@@ -54,6 +54,22 @@ class RemovedSettingsCheckTests(SimpleTestCase):
             all_issues,
         )
 
+    @override_settings(EMAIL_HOST="smtp.example.com")
+    @mock.patch.object(django, "VERSION", new=(7, 0, 0))
+    def test_check_removed_settings_django_61_email_deprecation(self, *args):
+        all_issues = checks.run_checks(tags=None)
+
+        self.assertIn(
+            checks.Warning(
+                "The 'EMAIL_HOST' setting was removed in Django 7.0 and its use is not recommended.",
+                hint="Please refer to the documentation: https://docs.djangoproject.com/en/stable/releases/"
+                "7.0/#features-removed-in-7-0.",
+                obj="EMAIL_HOST",
+                id="removals.W070/email_host",
+            ),
+            all_issues,
+        )
+
     @override_settings(LOGOUT_URL="/logout")
     def test_non_float_django_versions(self, *args):
         all_issues = checks.run_checks(tags=None)
