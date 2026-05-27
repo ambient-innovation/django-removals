@@ -1,5 +1,11 @@
 # Changelog
 
+**1.2.1** (2026-05-27)
+  * Fixed incorrect removal versions for several settings: `DATABASE_*` / `TEST_DATABASE_*` (1.2 → 1.4),
+    `TRANSACTIONS_MANAGED` (1.4 → 1.8), `AUTH_PROFILE_MODULE` (1.5 → 1.7), the legacy `TEST_*` database
+    settings (1.7 → 1.8) and `PASSWORD_RESET_TIMEOUT_DAYS` (3.0 → 4.0)
+  * Fixed version comparison so double-digit minor versions (e.g. Django 1.10) are evaluated correctly
+
 **1.2.0** (2026-05-27)
   * Added known settings deprecations from Django 6.1: the `EMAIL_*` settings (replaced by `MAILERS`) and `USE_BLANK_CHOICE_DASH`
 
