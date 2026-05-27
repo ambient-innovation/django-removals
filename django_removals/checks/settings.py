@@ -3,7 +3,7 @@ from django.conf import settings
 from django.core.checks import Warning  # noqa: A004
 
 REMOVED_SETTINGS = {
-    "1.2": {
+    "1.4": {
         "DATABASE_ENGINE",
         "DATABASE_HOST",
         "DATABASE_NAME",
@@ -15,13 +15,8 @@ REMOVED_SETTINGS = {
         "TEST_DATABASE_COLLATION",
         "TEST_DATABASE_NAME",
     },
-    "1.4": {
-        "TRANSACTIONS_MANAGED",
-    },
-    "1.5": {
-        "AUTH_PROFILE_MODULE",
-    },
     "1.7": {
+        "AUTH_PROFILE_MODULE",
         "SOUTH_DATABASE_ADAPTER",
         "SOUTH_DATABASE_ADAPTERS",
         "SOUTH_AUTO_FREEZE_APP",
@@ -30,6 +25,11 @@ REMOVED_SETTINGS = {
         "SOUTH_LOGGING_FILE",
         "SOUTH_MIGRATION_MODULES",
         "SOUTH_USE_PYC",
+    },
+    "1.8": {
+        "SEND_BROKEN_LINK_EMAILS",
+        "CACHE_MIDDLEWARE_ANONYMOUS_ONLY",
+        "TRANSACTIONS_MANAGED",
         "TEST_CREATE",
         "TEST_USER_CREATE",
         "TEST_PASSWD",
@@ -39,10 +39,6 @@ REMOVED_SETTINGS = {
         "TEST_DATABASE_PASSWORD",
         "TEST_DATABASE_PORT",
         "TEST_DATABASE_USER",
-    },
-    "1.8": {
-        "SEND_BROKEN_LINK_EMAILS",
-        "CACHE_MIDDLEWARE_ANONYMOUS_ONLY",
     },
     "1.10": {
         "ALLOWED_INCLUDE_ROOTS",
@@ -61,7 +57,6 @@ REMOVED_SETTINGS = {
     },
     "3.0": {
         "DEFAULT_CONTENT_TYPE",
-        "PASSWORD_RESET_TIMEOUT_DAYS",
     },
     "3.1": {
         "FILE_CHARSET",
@@ -69,6 +64,7 @@ REMOVED_SETTINGS = {
     "4.0": {
         "DEFAULT_HASHING_ALGORITHM",
         "SECURE_BROWSER_XSS_FILTER",
+        "PASSWORD_RESET_TIMEOUT_DAYS",
     },
     "5.0": {
         "USE_L10N",
@@ -112,8 +108,10 @@ def check_removed_settings(**kwargs):
     for setting_name in dir(settings):
         # Iterate all known removals...
         for django_version, removed_settings in REMOVED_SETTINGS.items():
+            # Compare as (major, minor) tuples so multi-digit parts like "1.10" sort correctly...
+            removal_version = tuple(int(part) for part in django_version.split("."))
             # If our installed Django version is older than the upcoming removals, we ignore them...
-            if float(django_version) > django.VERSION[0] + django.VERSION[1] / 10:
+            if removal_version > django.VERSION[:2]:
                 continue
             # Check if we have a match...
             if setting_name.isupper() and setting_name in removed_settings:
