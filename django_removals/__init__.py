@@ -1,3 +1,3 @@
 """Tool for finding removed features in your Django project"""
 
-__version__ = "1.2.2"
+__version__ = "1.3.0"
