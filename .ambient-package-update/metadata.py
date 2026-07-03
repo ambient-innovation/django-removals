@@ -1,5 +1,6 @@
 from ambient_package_update.metadata.author import PackageAuthor
 from ambient_package_update.metadata.constants import (
+    DEPLOYMENT_STATUS_STABLE,
     DEV_DEPENDENCIES,
     LICENSE_MIT,
     SUPPORTED_DJANGO_VERSIONS,
@@ -23,7 +24,7 @@ METADATA = PackageMetadata(
     claim="Tool for finding removed features in your Django project",
     license=LICENSE_MIT,
     license_year=2024,
-    development_status="5 - Production/Stable",
+    development_status=DEPLOYMENT_STATUS_STABLE,
     has_migrations=False,
     readme_content=ReadmeContent(uses_internationalisation=False),
     main_branch="main",
