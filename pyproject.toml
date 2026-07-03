@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "django-removals"
 authors = [
-    {'name' = 'Ambient Digital', 'email' = 'hello@ambient.digital'},
+    {'name' = 'Beyonder Deutschland', 'email' = 'hello@beyonder.de'},
 ]
 readme = "README.md"
 classifiers = [
@@ -53,7 +53,7 @@ dev = [
 [project.urls]
 'Homepage' = 'https://github.com/ambient-innovation/django-removals/'
 'Documentation' = 'https://django-removals.readthedocs.io/en/latest/index.html'
-'Maintained by' = 'https://ambient.digital/'
+'Maintained by' = 'https://beyonder.de/'
 'Bugtracker' = 'https://github.com/ambient-innovation/django-removals/issues'
 'Changelog' = 'https://django-removals.readthedocs.io/en/latest/features/changelog.html'
 
