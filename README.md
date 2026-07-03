@@ -9,7 +9,7 @@ Welcome to the **django-removals** - a maintainer's best friend for finding remo
 
 [PyPI](https://pypi.org/project/django-removals/) • [GitHub](https://github.com/ambient-innovation/django-removals) • [Full documentation](https://django-removals.readthedocs.io/en/latest/index.html)
 
-Creator & Maintainer: [Ambient Digital](https://ambient.digital/)
+Creator & Maintainer: [Beyonder Deutschland](https://beyonder.de/)
 
 ## Features
 

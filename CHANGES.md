@@ -1,5 +1,8 @@
 # Changelog
 
+**1.3.1** (2026-07-03)
+  * Updated company and maintainer information to "Beyonder Deutschland"
+
 **1.3.0** (2026-07-03)
   * **Breaking change:** Dropped support for Python 3.10 (nearing end-of-life in October 2026)
   * Added support for Python 3.14
