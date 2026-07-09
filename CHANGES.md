@@ -1,5 +1,8 @@
 # Changelog
 
+**1.4.0** (2026-07-09)
+  * Added `SIGNED_COOKIE_LEGACY_SALT_FALLBACK` to the settings removed in Django 7.0 (#18)
+
 **1.3.1** (2026-07-03)
   * Updated company and maintainer information to "Beyonder Deutschland"
 
