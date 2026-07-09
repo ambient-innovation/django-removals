@@ -94,6 +94,8 @@ REMOVED_SETTINGS = {
         "EMAIL_TIMEOUT",
         # Transitional setting deprecated in 6.1
         "USE_BLANK_CHOICE_DASH",
+        # Transitional setting introduced in the 5.2.15 security release, deprecated in 6.1
+        "SIGNED_COOKIE_LEGACY_SALT_FALLBACK",
     },
 }
 

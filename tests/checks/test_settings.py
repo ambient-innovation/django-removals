@@ -70,6 +70,23 @@ class RemovedSettingsCheckTests(SimpleTestCase):
             all_issues,
         )
 
+    @override_settings(SIGNED_COOKIE_LEGACY_SALT_FALLBACK=True)
+    @mock.patch.object(django, "VERSION", new=(7, 0, 0))
+    def test_check_removed_settings_signed_cookie_legacy_salt_fallback(self, *args):
+        all_issues = checks.run_checks(tags=None)
+
+        self.assertIn(
+            checks.Warning(
+                "The 'SIGNED_COOKIE_LEGACY_SALT_FALLBACK' setting was removed in Django 7.0 and its use is not "
+                "recommended.",
+                hint="Please refer to the documentation: https://docs.djangoproject.com/en/stable/releases/"
+                "7.0/#features-removed-in-7-0.",
+                obj="SIGNED_COOKIE_LEGACY_SALT_FALLBACK",
+                id="removals.W070/signed_cookie_legacy_salt_fallback",
+            ),
+            all_issues,
+        )
+
     @override_settings(LOGOUT_URL="/logout")
     @mock.patch.object(django, "VERSION", new=(1, 9, 0))
     def test_double_digit_minor_not_flagged_on_older_django(self, *args):
