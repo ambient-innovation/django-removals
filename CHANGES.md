@@ -1,5 +1,8 @@
 # Changelog
 
+**1.4.1** (2026-08-27)
+  * Maintenance updates via ambient-package-update
+
 **1.4.0** (2026-07-09)
   * Added `SIGNED_COOKIE_LEGACY_SALT_FALLBACK` to the settings removed in Django 7.0 (#18)
 
